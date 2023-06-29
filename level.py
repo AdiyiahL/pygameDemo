@@ -19,7 +19,7 @@ class Level:
 		# self.success = pygame.mixer.Sound('../audio/success.wav')
 		# self.success.set_volume(0.3)
 		self.music = pygame.mixer.Sound('audio/music.mp3')
-		self.music.set_volume(0.4)
+		self.music.set_volume(0.3)
 		self.music.play(loops=-1)
 
 	def setup(self):
@@ -36,18 +36,24 @@ class Level:
 			surf=pygame.image.load('image/object1.png').convert_alpha(),
 			groups=[self.all_sprites, self.collision_sprites],
 			player_add=self.player_add,  # 声明player_add属性
+			questions="Is Tokenization one key feature of Spacy?",
+			answer="yes",
 			z=LAYERS['objects'])
 		self.ob2 = Objects(
 			pos=(Constant.SCREEN_WIDTH/2+180, -30),
 			surf=pygame.image.load('image/object1.png').convert_alpha(),
 			groups=[self.all_sprites, self.collision_sprites],
 			player_add=self.player_add,  # 声明player_add属性
+			questions="Does Part-of-speech tagging belong toSpacy?",
+			answer="no",
 			z=LAYERS['objects'])
 		self.ob3 = Objects(
 			pos=(Constant.SCREEN_WIDTH/2*3, 20),
 			surf=pygame.image.load('image/object1.png').convert_alpha(),
 			groups=[self.all_sprites, self.collision_sprites],
 			player_add=self.player_add,    # 声明player_add属性
+			questions="Is Named entity recognition related toSpacy?",
+			answer="yes",
 			z=LAYERS['objects'])
 		self.stone = stones(
 			pos=(Constant.SCREEN_WIDTH/2+280, 160),

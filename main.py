@@ -3,7 +3,7 @@ import pygame as pg
 import sys
 from constant import Constant
 from level import Level
-
+import asyncio
 
 
 class Game :
@@ -19,7 +19,7 @@ class Game :
         self.level = Level()
 
 
-    def run(self):
+    async def run(self):
         while Constant.running:
 
             #deal events
@@ -31,9 +31,10 @@ class Game :
             dt = self.clock.tick() / 1000
             self.level.run(dt)
             pg.display.update()
+            await asyncio.sleep(0)
 
         pg.quit()
 
 if __name__ =='__main__':
     game = Game()
-    game.run()
+    asyncio.run(game.run())

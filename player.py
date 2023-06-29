@@ -91,8 +91,11 @@ class Player(pg.sprite.Sprite):
             if hasattr(sprite, 'hitbox'):
                 if sprite.hitbox.colliderect(self.hitbox):
                     if hasattr(sprite,'question'):
-                        pyautogui.alert("Do you want to answer questions?")
-                        self.update_monster()
+                        # pyautogui.alert("Do you want to answer questions?")
+                        print(sprite.question)
+                        answer = pyautogui.confirm(text=sprite.questions,title="NPC-Questions",buttons=['yes','no','give up'])
+                        if answer==sprite.answer:
+                            self.update_monster()
                         print(self.key)
                     if hasattr(sprite,"monster") and sprite.monster==1:
                         pyautogui.alert("You don't have enough keys!")
